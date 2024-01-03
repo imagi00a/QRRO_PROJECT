@@ -12,8 +12,8 @@
 		</h1>
 		<div>
 			<ul>
-				<li><a type="button" href="<c:url value='/qrro/order/orderLogin'/>">ORDER</a></li>
-            	<li><a class="button-link" href="<c:url value='/qrro/pos/posLogin'/>">POS</a></li>
+				<li><a href="<c:url value='/qrro/order/orderLogin'/>">ORDER</a></li>
+            	<li><a href="<c:url value='/qrro/pos/posLogin'/>">POS</a></li>
 			</ul>
 		</div>
 	

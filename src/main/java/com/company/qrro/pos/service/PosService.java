@@ -1,6 +1,6 @@
 package com.company.qrro.pos.service;
 
-public class QrroPosService {
+public class PosService {
 
 	
 	

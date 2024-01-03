@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 
 @Controller
-public class QrroPosController {
+public class PosController {
 	
 	
 	@RequestMapping(value = "/qrro/pos/posLogin", method = RequestMethod.GET)
