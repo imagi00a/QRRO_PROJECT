@@ -17,7 +17,7 @@
             <div>
 				<ul>
 					<li><a href="<c:url value='/qrro/pos/posMain'/>">Login</a></li>
-					<li><a href="<c:url value='/qrro/pos/createAd'/>">Create Admin ID</a></li>
+					<li><a href="<c:url value='/qrro/pos/posCreate'/>">Create Admin ID</a></li>
 				</ul>
 		</div>
 </body>
