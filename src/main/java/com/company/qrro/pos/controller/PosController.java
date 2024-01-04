@@ -13,16 +13,6 @@ public class PosController {
 	public String posLogin() {
 		return "/qrro/pos/posLogin";
 	}
-	@RequestMapping(value = "/qrro/pos/posMain", method = RequestMethod.GET)
-	public String posMain() {
-		return "/qrro/pos/posMain";
-	}
-	@RequestMapping(value = "/qrro/pos/createAd", method = RequestMethod.GET)
-	public String createAd() {
-		return "/qrro/pos/createAd";
-	}
-	
-	
 	
 }
 
