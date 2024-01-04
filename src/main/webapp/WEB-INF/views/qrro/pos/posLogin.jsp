@@ -9,17 +9,16 @@
     <title>Login Page</title>
 </head>
 <body>
-    <div>
         <h1>POS Login</h1>
-        <form>
             <div>
-				<input type="text" placeholder="아이디를 입력하세요"><br>
-				<input type="password" placeholder="비밀번호를 입력하세요"><br>
-				<button type="submit">Login</button><br>
-				<button type="button">Admin Registration</button>
+                <input type="text" name="username" placeholder="아이디를 입력하세요"><br>
+                <input type="password" name="password" placeholder="비밀번호를 입력하세요"><br>
             </div>
-        </form>
-    </div>
+            <div>
+				<ul>
+					<li><a href="<c:url value='/qrro/pos/posMain'/>">Login</a></li>
+					<li><a href="<c:url value='/qrro/pos/createAd'/>">Create Admin ID</a></li>
+				</ul>
+		</div>
 </body>
 </html>
-
