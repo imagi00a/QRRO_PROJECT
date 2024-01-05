@@ -9,6 +9,35 @@
 	    <meta charset="UTF-8">
 	    <title>Create Admin ID Page</title>
 	</head>
+	
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+	<script>
+	
+	//입력값 유효성 검사. form의 모든 항목을 불러와서 입력값이 비었을 경우
+	//버튼을 클릭했을 때 지정한 위치에 메세지를 뜨게 설정함.
+	  $(document).ready(function(){
+	    $('#btnCreate').click(function(e){
+	      var store_id = $('input[name="store_id"]').val().trim();
+	      var store_pw = $('input[name="store_pw"]').val().trim();
+	      var store_name = $('input[name="store_name"]').val().trim();
+	      var owner = $('input[name="owner"]').val().trim();
+	      var store_no = $('input[name="store_no"]').val().trim();
+	      var address = $('input[name="address"]').val().trim();
+	      var store_tel = $('input[name="store_tel"]').val().trim();
+	
+	      if(store_id === '' || store_pw === '' || store_name === '' || owner === '' 
+	    		  || store_no === '' || address === '' || store_tel === '') {
+	    	  $('#message').text('모든 항목을 입력해 주세요');
+	          e.preventDefault();
+	        } else {
+	          $('#message').text('');
+	          $('#frm1').submit();
+	          alert('관리자 등록이 되었습니다.');
+	        }
+	    });
+	  });
+	</script>
+
 	<body>
 		<div>
 	        <h1>Create Admin ID</h1>
@@ -23,19 +52,13 @@
 				<input type="text" name="store_no" placeholder="사업자번호 입력"><br>
 				<input type="text" name="address" placeholder="주소 입력"><br>
 				<input type="tel"  name="store_tel" placeholder="전화번호 입력"><br>
-				<input type="button" id="btnCreate" value="Create"><br>
+				<input type="button" id="btnCreate" value="Create">
+				<input type="button" id="btnFindId" value="FindID">
+				<input type="button" id="btnFindPw" value="FindPW"><br>
+				<div id="message" style="color:red;"></div>
 			</form>
 		</div>
 	
-		<script src="<c:url value='/cdn/js/jquery-3.7.1.min.js'/>"></script>
-		
-		<script>
-		
-			document.getElementById('btnCreate').addEventListener('click',function(){
-			document.getElementById('frm1').submit();
-			});
-		
-		</script>
 		
 	</body>
 </html>
