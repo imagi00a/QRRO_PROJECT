@@ -23,7 +23,7 @@ public class orderServiceImpl implements orderService {
 	@Override  
 	public int login(Map map) {
 
-		int result = 0; 
+		int result = 0;   
 
 		if (orderDao.select(map) != null) {
 			result = 1;
