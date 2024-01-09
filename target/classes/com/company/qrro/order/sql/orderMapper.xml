@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.company.qrro.order.sql.orderMapper">
+
+	<select id="selectTotalCnt" resultType="map" parameterType="map">
+		select count(*) as totalCnt
+		from table_info
+		where 1 = 1
+		and del_yn = 'N'
+		<if test="null != fWrite and '' != fWrite ">
+			<![CDATA[
+				and DATE_FORMAT(write_date, '%Y%m%d') >= #{fWrite}
+			]]>
+		</if>
+		<if test=" null != tWrite and '' != tWrite ">
+			<![CDATA[
+				and DATE_FORMAT(write_date, '%Y%m%d') <= #{tWrite}
+			]]>
+		</if>
+		<if test="null != title and '' != title ">
+			and title like CONCAT('%',#{title},'%')
+		</if>
+	</select>
+	
+	<select id="select" resultType="map" parameterType="map">
+		select 
+				seq
+				,table_id
+				,table_pw
+		from table_info
+		where  table_id = #{table_id} and table_pw = #{table_pw} 
+	
+	</select>
+	
+	<insert id="write" parameterType="map" useGeneratedKeys="true" keyProperty="seq">
+		insert into free
+		(
+			title
+			,content
+			,writer
+		) values (
+			#{title}
+			,#{content}
+			,#{writer}
+		)
+	</insert>
+	
+	<delete id="delete" parameterType="map">
+		update free set
+			del_yn = 'Y'
+		where seq = #{seq}
+	</delete>
+
+	<update id="update" parameterType="map">
+		update free set
+			title = #{title}
+		    ,content = #{content}
+		    ,update_date = CURRENT_TIMESTAMP
+		where seq = #{seq}
+	</update>
+	
+	<update id="updateRec" parameterType="map">
+		update free set
+		<if test=" 'Y'.toString() eq recYN ">
+			rec_cnt = rec_cnt + 1
+		</if>
+		<if test=" 'N'.toString() eq recYN ">
+			nrec_cnt = nrec_cnt + 1
+		</if>
+		where seq = #{seq}
+	</update>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</mapper>
